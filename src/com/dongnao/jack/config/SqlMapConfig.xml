@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<properties>
+		<!-- 用于配置属性信息 -->
+		<property name="name1" value="value1"/>
+		<property name="name2" value="value2"/>
+		<property name="name3" value="value3"/>
+	</properties>
+	<!--<properties resource="config.properties" />-->
+	<settings>
+		<!-- 用于配置MyBatis的运行时方式 -->
+		<!-- changes from the defaults -->
+		<setting name="cacheEnabled" value="true" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<setting name="useColumnLabel" value="true" />
+		<setting name="useGeneratedKeys" value="false" />
+		<setting name="autoMappingBehavior" value="PARTIAL" />
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		<setting name="defaultStatementTimeout" value="25" />
+		<setting name="safeRowBoundsEnabled" value="false" />
+		<setting name="mapUnderscoreToCamelCase" value="false" />
+		<setting name="localCacheScope" value="SESSION" />
+		<setting name="jdbcTypeForNull" value="OTHER" />
+		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="Author" type="domain.blog.Author"/>
+		<typeAlias alias="Blog" type="domain.blog.Blog"/>
+		<typeAlias alias="Comment" type="domain.blog.Comment"/>
+		<typeAlias alias="Post" type="domain.blog.Post"/>
+		<typeAlias alias="Section" type="domain.blog.Section"/>
+		<typeAlias alias="Tag" type="domain.blog.Tag"/>
+	</typeAliases>
+	<typeHandlers>
+		<typeHandler javaType="String" jdbcType="VARCHAR"
+			handler="cn.com.ultrapower.zcwg.ext.mybatis.typehandler.LargeStringTypeHandler"/>
+	</typeHandlers>
+	<mappers>
+		<mapper resource="com/dongnao/jack/config/BlogMapper.xml"/>
+		<!--<mapper resource="org/mybatis/builder/PostMapper.xml"/>
+		<mapper url="file:///var/mappers/AuthorMapper.xml"/>
+		<mapper url="file:///var/mappers/BlogMapper.xml"/>
+		<mapper url="file:///var/mappers/PostMapper.xml"/>
+		<mapper class="org.mybatis.builder.AuthorMapper"/>
+		<mapper class="org.mybatis.builder.BlogMapper"/>
+		<mapper class="org.mybatis.builder.PostMapper"/>
+		<package name="org.mybatis.builder"/>-->
+	</mappers>
+</configuration>
