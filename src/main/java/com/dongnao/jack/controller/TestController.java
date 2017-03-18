@@ -32,6 +32,7 @@ public class TestController {
 			GridFSInputFile gfs = fs.createFile(new File("F:\\hallv2\\WebRoot\\html\\images\\4glottery_img.PNG"));
 			gfs.put("filename", "sss");
 			gfs.save();
+			System.out.println();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
